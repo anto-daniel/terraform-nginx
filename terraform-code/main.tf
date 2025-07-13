@@ -1,15 +1,19 @@
 resource "random_id" "random" {
   byte_length = 2
+  count       = 2
 }
+
 resource "github_repository" "mtc_repo" {
-  name        = "mtc-repo-${random_id.random.dec}"
+  count       = 2
+  name        = "mtc-repo-${random_id.random[count.index].dec}"
   visibility  = "private"
   description = "Code for MTC"
   auto_init   = true
 }
 
 resource "github_repository_file" "readme" {
-  repository          = github_repository.mtc_repo.name
+  count               = 2
+  repository          = github_repository.mtc_repo[count.index].name
   content             = "# This repository is for infra developers"
   file                = "README.md"
   branch              = "main"
@@ -17,7 +21,8 @@ resource "github_repository_file" "readme" {
 }
 
 resource "github_repository_file" "index" {
-  repository          = github_repository.mtc_repo.name
+  count               = 2
+  repository          = github_repository.mtc_repo[count.index].name
   content             = "Hello World"
   file                = "index.html"
   branch              = "main"
