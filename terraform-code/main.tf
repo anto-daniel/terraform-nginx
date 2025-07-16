@@ -28,3 +28,9 @@ resource "github_repository_file" "index" {
   branch              = "main"
   overwrite_on_create = true
 }
+
+output "repo-names" {
+  value       = github_repository.mtc_repo.*.name
+  description = "Names of the repositories"
+  sensitive   = true
+}
