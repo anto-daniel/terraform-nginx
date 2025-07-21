@@ -36,7 +36,3 @@ output "clone-urls" {
   sensitive   = false
 }
 
-output "varsource" {
-  value       = var.varsource
-  description = "Source of the variable file"
-}

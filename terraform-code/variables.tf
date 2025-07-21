@@ -8,9 +8,3 @@ variable "repo_count" {
     error_message = "The repo_count must be less than 5."
   }
 }
-
-#variable "varsource" {
-#  type        = string
-#  description = "Source of the variable file"
-#  default     = "variables.tf"
-#}
