@@ -37,7 +37,6 @@ output "clone-urls" {
 }
 
 output "varsource" {
-  type        = string
+  value       = var.varsource
   description = "Source of the variable file"
-  default     = var.varsource
 }
