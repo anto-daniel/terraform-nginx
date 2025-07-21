@@ -35,3 +35,8 @@ output "clone-urls" {
   description = "Repository Name and Clone URLs"
   sensitive   = false
 }
+
+output "varsource" {
+  value       = var.varsource
+  description = "Source of the variable file"
+}
