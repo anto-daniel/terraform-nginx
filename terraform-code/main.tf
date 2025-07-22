@@ -4,8 +4,8 @@ resource "random_id" "random" {
 }
 
 resource "github_repository" "mtc_repo" {
-  count       = var.repo_count
-  name        = "mtc-repo-${random_id.random[count.index].dec}"
+  for_each    = toset(["dev", "prod"])
+  name        = "mtc-repo-${each.key}"
   visibility  = "private"
   description = "Code for MTC"
   auto_init   = true
