@@ -6,8 +6,8 @@
 resource "github_repository" "mtc_repo" {
   for_each    = toset(["dev", "prod"])
   name        = "mtc-repo-${each.key}"
-  visibility  = "private"
-  description = "Code for MTC"
+  visibility  = var.env == "dev" ? "private" : "public"
+  description = "${each.value} Code for MTC"
   auto_init   = true
 }
 
@@ -31,7 +31,7 @@ resource "github_repository" "mtc_repo" {
 #
 output "clone-urls" {
 
-  value       = { for i in github_repository.mtc_repo[*] : i.name => i.http_clone_url }
+  value       = { for i in github_repository.mtc_repo : i.name => i.http_clone_url }
   description = "Repository Name and Clone URLs"
   sensitive   = false
 }

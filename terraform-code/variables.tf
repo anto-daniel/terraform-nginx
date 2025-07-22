@@ -8,3 +8,9 @@ variable "repo_count" {
     error_message = "The repo_count must be less than 5."
   }
 }
+
+variable "env" {
+  type        = string
+  description = "Environment"
+  default     = "dev"
+}
