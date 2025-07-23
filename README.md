@@ -36,3 +36,4 @@ It demonstrates how to use the [GitHub Terraform Provider](https://registry.terr
 ## License
 
 This example is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
